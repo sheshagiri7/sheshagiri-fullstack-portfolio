@@ -2,7 +2,14 @@ import React, { useState } from 'react';
 import { Send, CheckCircle2, AlertCircle, Mail, Briefcase, Loader2 } from 'lucide-react';
 import { PROFILE } from '../data/profile';
 
-const API_BASE_URL = import.meta.env.VITE_API_URL || '/api';
+const getContactEndpoint = () => {
+  let base = (import.meta.env.VITE_API_URL || '/api').trim();
+  base = base.replace(/\/+$/, '');
+  if (!base.endsWith('/api')) {
+    base = `${base}/api`;
+  }
+  return `${base}/contact`;
+};
 
 export const Contact = () => {
   const [formData, setFormData] = useState({
@@ -70,9 +77,7 @@ export const Contact = () => {
     setStatus({ submitting: true, success: false, error: null });
 
     try {
-      const endpoint = API_BASE_URL.endsWith('/')
-        ? `${API_BASE_URL}contact`
-        : `${API_BASE_URL}/contact`;
+      const endpoint = getContactEndpoint();
 
       const response = await fetch(endpoint, {
         method: 'POST',

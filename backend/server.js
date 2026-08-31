@@ -55,6 +55,7 @@ app.get('/', (req, res) => {
 
 // API Routes
 app.use('/api', apiRoutes);
+app.use('/', apiRoutes); // Also support direct root routes /contact and /health for resilience
 
 // 404 handler
 app.use((req, res) => {
