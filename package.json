@@ -1,0 +1,15 @@
+{
+  "name": "thiranex-fullstack-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Full-Stack Developer Portfolio for Sheshagiri S (Thiranex Task 1)",
+  "scripts": {
+    "dev:frontend": "cd frontend && npm run dev",
+    "dev:backend": "cd backend && npm run dev",
+    "build:frontend": "cd frontend && npm run build",
+    "start:backend": "cd backend && npm start"
+  },
+  "keywords": ["portfolio", "react", "express", "mongodb", "fullstack"],
+  "author": "Sheshagiri S",
+  "license": "MIT"
+}
